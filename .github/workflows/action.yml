@@ -27,10 +27,11 @@ jobs:
           path: spring-testing-client
       - name: Generate new Client
         run: mvn --batch-mode install
-      - name: Push new Client
-        run: |
-          cd spring-testing-client
-          git config --global user.name "InternalErrorGit"
-          git config --global user.email "phil.gatzka@gmail.com"
-          git commit -am "Published new Version"
-          git push
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        with:
+          source-directory: 'spring-testing-client'
+          destination-github-username: 'InternalErrorGit'
+          destination-repository-name: 'spring-testing-client'
+          user-email: carles3@pina.cat
+          commit-message: "Pushing client updates"
