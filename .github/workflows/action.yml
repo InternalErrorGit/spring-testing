@@ -20,8 +20,8 @@ jobs:
       - name: Checkout current client
         uses: actions/checkout@v4
         with:
-          repository: spring-testing-client
-          path: InternalErrorGit/spring-testing-client
+          repository: InternalErrorGit/spring-testing-client
+          path: spring-testing-client
 
       - name: Print tree
         run: tree
