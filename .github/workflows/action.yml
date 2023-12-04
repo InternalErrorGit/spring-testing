@@ -23,4 +23,11 @@ jobs:
           repository: InternalErrorGit/spring-testing-client
           path: spring-testing-client
       - name: Generate new Client
-        run: mvn install
+        run: mvn --batch-mode install
+      - name: Push new Client
+        run: |
+          cd spring-testing-client
+          git config --global user.name "InternalErrorGit"
+          git config --global user.email "phil.gatzka@gmail.com"
+          git commit -am "Published new Version"
+          git push
