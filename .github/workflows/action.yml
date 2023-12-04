@@ -22,6 +22,5 @@ jobs:
         with:
           repository: InternalErrorGit/spring-testing-client
           path: spring-testing-client
-
-      - name: Print tree
-        run: tree
+      - name: Generate new Client
+        run: mvn install

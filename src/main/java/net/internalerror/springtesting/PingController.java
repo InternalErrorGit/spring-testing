@@ -14,4 +14,9 @@ public class PingController {
     return "pong";
   }
 
+  @GetMapping(value = "/pong", produces = MediaType.APPLICATION_JSON_VALUE)
+  public String pong() {
+    return "ping";
+  }
+
 }
