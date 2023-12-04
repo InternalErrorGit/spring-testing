@@ -1,0 +1,27 @@
+name: Action
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  generateClient:
+    name: Generate Client
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Checkout current client
+        uses: actions/checkout@v4
+        with:
+          repository: spring-testing-client
+          path: spring-testing-client
+
+      - name: Print tree
+        run: tree
